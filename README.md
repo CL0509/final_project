@@ -39,7 +39,7 @@ http://localhost:8080/api/products
 
 {
     "name": "Sample Product",
-    "description": "This is a sample product.",
+    "description": "hello",
     "price": 99.99,
     "category": {
         "id": 1  
@@ -53,7 +53,7 @@ http://localhost:8080/api/products
 {
     "id": 1,  
     "name": "Updated Product",
-    "description": "This is an updated product.",
+    "description": "hello world",
     "price": 89.99,
     "category": {
         "id": 1  
@@ -80,7 +80,7 @@ http://localhost:8080/api/ratings
 
 {
     "score": 5,
-    "comment": "Great product!",
+    "comment": "Nice product!",
     "product": {
         "id": 1
     }
