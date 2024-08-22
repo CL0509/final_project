@@ -3,12 +3,15 @@ package com.example.onlineshopping.entity;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "coupon")
 public class Coupon {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String code;
-    private double discount;
+    private double discountPercentage;
+    
 	public Long getId() {
 		return id;
 	}
@@ -21,11 +24,11 @@ public class Coupon {
 	public void setCode(String code) {
 		this.code = code;
 	}
-	public double getDiscount() {
-		return discount;
+	public double getDiscountPercentage() {
+		return discountPercentage;
 	}
-	public void setDiscount(double discount) {
-		this.discount = discount;
+	public void setDiscountPercentage(double discountPercentage) {
+		this.discountPercentage = discountPercentage;
 	}
 
     

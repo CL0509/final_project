@@ -1,17 +1,22 @@
 package com.example.onlineshopping.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "rating")
 public class Rating {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private int stars;
     private String comment;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
+    @JsonIgnore 
     private Product product;
 
 	public Long getId() {
@@ -46,5 +51,5 @@ public class Rating {
 		this.product = product;
 	}
 
-	
+    
 }

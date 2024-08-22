@@ -1,8 +1,10 @@
 package com.example.onlineshopping.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.onlineshopping.entity.Basket;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
 
 public interface BasketRepository extends JpaRepository<Basket, Long> {
-    Basket findByUserId(Long userId);
+    Optional<Basket> findByUserId(Long userId);
 }

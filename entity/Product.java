@@ -2,24 +2,25 @@ package com.example.onlineshopping.entity;
 
 import jakarta.persistence.*;
 
-import java.util.List;
+import java.util.Set;
 
 @Entity
+@Table(name = "product")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    
     private String name;
     private String description;
     private Double price;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "category_id")
     private Category category;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
-    private List<Rating> ratings;
+    private Set<Rating> ratings;
 
 	public Long getId() {
 		return id;
@@ -45,7 +46,7 @@ public class Product {
 		this.description = description;
 	}
 
-	public Double getPrce() {
+	public Double getPrice() {
 		return price;
 	}
 
@@ -61,13 +62,15 @@ public class Product {
 		this.category = category;
 	}
 
-	public List<Rating> getRatings() {
+	public Set<Rating> getRatings() {
 		return ratings;
 	}
 
-	public void setRatings(List<Rating> ratings) {
+	public void setRatings(Set<Rating> ratings) {
 		this.ratings = ratings;
 	}
 
 
+
+    
 }

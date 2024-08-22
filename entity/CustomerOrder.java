@@ -12,15 +12,19 @@ public class CustomerOrder {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id") 
+    @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToMany
+    @JoinTable(
+        name = "order_products",
+        joinColumns = @JoinColumn(name = "order_id"),
+        inverseJoinColumns = @JoinColumn(name = "product_id")
+    )
     private Set<Product> products;
 
     private LocalDate orderDate;
     private String status;
-    
 	public Long getId() {
 		return id;
 	}

@@ -4,16 +4,22 @@ import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity
+@Table(name = "basket")
 public class Basket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id") 
+    @JoinColumn(name = "user_id")
     private User user;
 
     @ManyToMany
+    @JoinTable(
+        name = "basket_products",
+        joinColumns = @JoinColumn(name = "basket_id"),
+        inverseJoinColumns = @JoinColumn(name = "product_id")
+    )
     private Set<Product> products;
 
 	public Long getId() {

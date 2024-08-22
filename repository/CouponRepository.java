@@ -1,10 +1,10 @@
 package com.example.onlineshopping.repository;
 
-
+import com.example.onlineshopping.entity.Coupon;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.example.onlineshopping.entity.Coupon;
+import java.util.Optional;
 
 public interface CouponRepository extends JpaRepository<Coupon, Long> {
-    Coupon findByCode(String code);
+    Optional<Coupon> findByCode(String code);
 }

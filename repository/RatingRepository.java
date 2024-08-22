@@ -1,11 +1,9 @@
 package com.example.onlineshopping.repository;
 
-
-import java.util.List;
-
+import com.example.onlineshopping.entity.Rating;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.example.onlineshopping.entity.Rating;
+import java.util.List;
 
 public interface RatingRepository extends JpaRepository<Rating, Long> {
     List<Rating> findByProductId(Long productId);
