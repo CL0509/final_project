@@ -9,9 +9,12 @@ import org.springframework.stereotype.Service;
 public class CouponService {
     @Autowired
     private CouponRepository couponRepository;
+    
+    public Coupon createCoupon(Coupon coupon) {
+        return couponRepository.save(coupon);
+    }
 
     public Coupon getCouponByCode(String code) {
-        return couponRepository.findByCode(code)
-                .orElseThrow(() -> new RuntimeException("Coupon not found"));
+        return couponRepository.findByCode(code);
     }
 }

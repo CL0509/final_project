@@ -10,7 +10,7 @@ import com.example.onlineshopping.entity.User;
 import com.example.onlineshopping.service.UserService;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/users")
 public class UserController {
     @Autowired
     private UserService userService;

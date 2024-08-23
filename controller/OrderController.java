@@ -3,15 +3,12 @@ package com.example.onlineshopping.controller;
 import com.example.onlineshopping.entity.CustomerOrder;
 import com.example.onlineshopping.service.OrderService;
 
-import jakarta.persistence.criteria.Order;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/orders")
@@ -23,6 +20,7 @@ public class OrderController {
     public CustomerOrder createOrder(@RequestBody CustomerOrder customerOrder) {
         return orderService.createOrder(customerOrder);
     }
+
 
     @GetMapping("/user/{userId}")
     public List<CustomerOrder> getOrdersByUser(@PathVariable("userId") Long userId) {

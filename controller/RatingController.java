@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/ratings")
 public class RatingController {
     @Autowired
     private RatingService ratingService;
@@ -19,7 +19,7 @@ public class RatingController {
         return ratingService.createRating(ratingDto);
     }
 
-    @GetMapping("/ratings/product/{productId}")
+    @GetMapping("/product/{productId}")
     public List<Rating> getRatingsByProduct(@PathVariable("productId") Long productId) {
         return ratingService.getRatingsByProduct(productId);
     }
