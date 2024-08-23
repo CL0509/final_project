@@ -1,0 +1,149 @@
+//////////////////////////////////////////////JalalsOnlineShop////////////////////////////////////
+/////////////////////////////////////////////////USER/////////////////////////////////////////////
+
+
+1. User Registration +
+
+Method: POST
+URL: http://localhost:8080/users/register
+Body (JSON):
+
+{
+  "username": "testuser",
+  "password": "password123",
+  "email": "testuser@example.com"
+}
+
+
+2. User Login +
+
+Method: POST
+URL: http://localhost:8080/users/login
+Body (JSON):
+
+{
+  "username": "testuser",
+  "password": "password123"
+}
+
+
+///////////////////////////////////////////////CATEGORY//////////////////////////////////////////////
+
+3. Create Category +
+
+Method: POST
+URL: http://localhost:8080/categories
+Body (JSON):
+{
+  "name": "Electronics"
+}
+
+
+/////////////////////////////////////////////////PRODUCT///////////////////////////////////////////////
+
+4. Create Product +
+
+Method: POST
+URL: http://localhost:8080/products
+Body (JSON):
+{
+  "name": "Smartphone",
+  "description": "A brand new smartphone",
+  "price": 699.99,
+  "categoryId": 1
+}
+
+5. Get Products by Category +
+
+Method: GET
+URL: http://localhost:8080/products/category/1
+
+6. Get Products by Price Range +
+
+Method: GET
+URL: http://localhost:8080/products/price-range
+Params:
+minPrice: 100.00
+maxPrice: 800.00
+Example URL:
+http://localhost:8080/products/price-range?minPrice=100.00&maxPrice=800.00
+
+//////////////////////////////////////////////////RATING//////////////////////////////////////////////
+
+7. Create Rating +
+
+Method: POST
+URL: http://localhost:8080/ratings
+Body (JSON):
+
+{
+  "stars": 5,
+  "comment": "Excellent product!",
+  "productId": 1
+}
+
+8. Get Ratings by Product +
+
+Method: GET
+URL: http://localhost:8080/ratings/product/{productId}
+Example URL: http://localhost:8080/ratings/product/1
+
+///////////////////////////////////////////////////BASKET/////////////////////////////////////////////
+
+9. Get Basket by User +
+
+Method: GET
+URL: http://localhost:8080/baskets/user/{userId}
+Example URL: http://localhost:8080/baskets/user/1
+
+/////////////////////////////////////////////////ORDER///////////////////////////////////////////////
+
+10. Create Order -
+
+Method: POST
+URL: http://localhost:8080/orders
+Body (JSON):
+
+{
+  "userId": 1,
+  "orderDate": "2023-07-29",
+  "items": [
+    {
+      "productId": 1,
+      "quantity": 2
+    }
+  ]
+}
+
+11. Get Orders by User - 
+
+Method: GET
+URL: http://localhost:8080/orders/user/{userId}
+Example URL: http://localhost:8080/orders/user/1
+
+12. Get Orders by User and Date Range -
+Method: GET
+URL: http://localhost:8080/orders/user/{userId}/date-range
+Query Parameters:
+startDate: 2023-07-01
+endDate: 2023-07-29
+Example URL:
+
+http://localhost:8080/orders/user/1/date-range?startDate=2023-07-01&endDate=2023-07-29
+
+////////////////////////////////////////////COUPON//////////////////////////////////////////////////
+
+13. Create Coupon +
+Method: POST
+URL: http://localhost:8080/coupons
+Body (JSON):
+
+{
+  "code": "DISCOUNT10",
+  "discountPercentage": 10
+}
+
+14. Get Coupon by Code +
+Method: GET
+URL: http://localhost:8080/coupons/{code}
+Example URL: http://localhost:8080/coupons/DISCOUNT10
